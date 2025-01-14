@@ -26,7 +26,7 @@ export interface IGuardian {
   
   export interface IStudent {
     id: string;
-    user:Types.ObjectId,
+    // user:Types.ObjectId,
     name: IUserName;
     email: string;
     gender: "male" | "female";
@@ -36,7 +36,7 @@ export interface IGuardian {
     emergencyContack: string;
     presentAddress: string;
     permanentAddress: string;
-    academicDepartMent:ObjectId;
+    // academicDepartMent:ObjectId;
     guardian: IGuardian;
     localGuardian: ILocalGuardian;
     profileImg?: string;

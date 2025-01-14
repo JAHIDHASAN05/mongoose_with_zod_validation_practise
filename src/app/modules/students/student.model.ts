@@ -32,7 +32,7 @@ const localGuardianSchema= new Schema<ILocalGuardian>({
 
 const StudentScema= new Schema<IStudent>({
     id: {type:String, required :false},
-    user:Schema.Types.ObjectId,
+//     user:Schema.Types.ObjectId,
     name:UserNameSchema,
     gender:['female' , "male"],
     dateOfBirth :{type:String},
@@ -41,7 +41,7 @@ const StudentScema= new Schema<IStudent>({
     emergencyContack:{type:String, required:false},
     presentAddress: {type: String, required: false},
     permanentAddress: {type: String, required: false},
-    academicDepartMent:{type:Schema.Types.ObjectId, required:false , ref:'AcademicSemister'   },
+//     academicDepartMent:{type:Schema.Types.ObjectId, required:false , ref:'AcademicSemister'   },
     email: {type: String, required: false},
     isActive: ['active', 'inactive'],
     profileImg: {type : String, required: false},
