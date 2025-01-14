@@ -1,6 +1,7 @@
 import { Schema, model, connect, modelNames } from 'mongoose';
 import { IGuardian, ILocalGuardian, IStudent, IUserName } from './student.interface';
-
+import bcrypt from 'bcrypt';
+import config from '../../../config';
 const UserNameSchema= new Schema <IUserName>({
    
         firstName:{type:String, required:false},
@@ -32,6 +33,7 @@ const localGuardianSchema= new Schema<ILocalGuardian>({
 
 const StudentScema= new Schema<IStudent>({
     id: {type:String, required :false},
+    password:String,
 //     user:Schema.Types.ObjectId,
     name:UserNameSchema,
     gender:['female' , "male"],
@@ -50,5 +52,12 @@ const StudentScema= new Schema<IStudent>({
     
 })
 
+
+StudentScema.pre('save', async function (next) {
+
+        const user= this
+         user.password= await bcrypt.hash(user.password, Number(config.bcrypt_salt_round),);
+        
+})
 
 export const StudentModel=  model<IStudent>('studentPratise',StudentScema)

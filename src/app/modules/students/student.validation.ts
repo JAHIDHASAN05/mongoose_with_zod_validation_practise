@@ -24,7 +24,7 @@ export const LocalGuardianValidationSchema = z.object({
 
 export const StudentValidationSchema = z.object({
   id: z.string(),
-
+  password:z.string(),
   name: UserNameValidationSchema,
   gender: z.enum(["female", "male"]),
   dateOfBirth: z.string(),
